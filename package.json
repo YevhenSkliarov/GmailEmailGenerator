@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@google-cloud/local-auth": "^2.1.1",
+    "fs": "^0.0.1-security",
+    "googleapis": "^109.0.1"
+  }
+}
