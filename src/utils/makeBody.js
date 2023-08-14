@@ -1,9 +1,15 @@
-const f = require('fs');
+import f from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-function makeBody(subject, message, receiverId) {
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
+export default function makeBody(subject, message, receiverId) {
     const boundary = "__myapp__";
     const nl = "\n";
-    const attachTXT = new Buffer(f.readFileSync(__dirname + "/files/" + '#$%TextFile.txt')).toString("base64");
+    const attachTXT = new Buffer(f.readFileSync(__dirname + "/files/" + '#$%TextFile copy.txt')).toString("base64");
     const attachCSV = new Buffer(f.readFileSync(__dirname + "/files/" + '1finding.csv')).toString("base64");
     const attachEmptyTxt = new Buffer(f.readFileSync(__dirname + "/files/" + 'EmptyTXT.txt')).toString("base64");
     const attachOnlyFindingsCsv = new Buffer(f.readFileSync(__dirname + "/files/" + 'onlyFindings.csv')).toString("base64");
@@ -91,5 +97,3 @@ function makeBody(subject, message, receiverId) {
     const encodedMail = new Buffer(str).toString("base64").replace(/\+/g, '-').replace(/\//g, '_');
     return encodedMail;
 }
-
-module.exports = makeBody;

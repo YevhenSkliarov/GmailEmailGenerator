@@ -1,10 +1,10 @@
-const authorize = require('./utils/auth')
-const config = require('./config');
-const { 
+import authorize from './utils/auth.js';
+import { config } from './config.js';
+import { 
   createMessages,
   moveMesagesToSpam,
   moveMesagesToTrash,
-  createDrafts } = require('./utils/actions');
+  createDrafts } from'./utils/actions.js';
 
 async function runScript() {
   const auth = await authorize();
